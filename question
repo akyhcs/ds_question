@@ -1,0 +1,528 @@
+two pointer
+Pair with a Sum
+markAsDonemarkForRevisionmarkForLater
+Given an array arr of N integers, and an integer K, Determine whether or not there exist two elements in arr whose sum is exactly K.
+
+Input Format
+
+The first line contains two spaced integers N and K denoting the size of the array and the target sum respectively.
+The second line contains N space-separated integers denoting the elements of the array.
+Output Format
+
+Print "Yes" if there exist two elements in arr whose sum is exactly K otherwise print "No".
+Input 1:
+
+6 16
+1 4 45 6 10 8
+Output 1:
+
+Yes
+Explanation:
+
+arr[3] + arr[4] = 6 + 10 = 16.
+Constraints:
+
+1 ≤N≤ 10^5
+1 ≤K≤ 2*10^5
+1 ≤arr[i]≤ 10^5
+Example
+Input
+6 16
+1 4 45 6 10 8
+Output
+Yes
+//package com.prac.two_pointer;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		InputStreamReader inputStreamReader  = new InputStreamReader(System.in);
+		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+		String firstLineinput[] = bufferedReader.readLine().trim().split(" ");
+		int sizeofArr =Integer.parseInt(firstLineinput[0]);
+		int target = Integer.parseInt(firstLineinput[1]);
+		int arr[] = new int[sizeofArr];
+		String secondLineInput[] = bufferedReader.readLine().trim().split(" ");
+		for(int i =0 ;i<sizeofArr;i++)
+		{
+			arr[i] = Integer.parseInt(secondLineInput[i]);
+		}
+		Arrays.sort(arr);
+		int i,j;
+		i=0;
+		j = arr.length-1;
+		boolean isTargetFound= false;
+		while(i<j)
+		{
+			int k = arr[i] + arr[j];
+			if(k==target)
+				{isTargetFound = true; break; }
+			else if(k<target)
+				i++;
+			else
+			{
+				j--;
+			}
+		}
+		if(isTargetFound)
+		{
+			System.out.println("Yes");
+		}
+		else
+		{
+			System.out.println("No");
+		}
+		
+	}
+
+}
+
+-----------------------------------------------------------------------
+
+Count pairs with given Sum
+markAsDonemarkForRevisionmarkForLater
+Given an array of N integers, and an integer K, find the number of pairs of elements in the array whose sum is equal to K.
+
+Input Format
+
+The first line contains two spaced integers N and K denoting the size of the array and the target sum respectively.
+The second line contains N space-separated integers denoting the elements of the array.
+Output Format
+
+Print the number of pairs whose sum is equal to K.
+Input 1:
+
+4 6
+1 5 7 1
+Output 1:
+
+2
+Explanation:
+
+arr[0] + arr[1] = 1 + 5 = 6 and arr[1] + arr[3] = 5 + 1 = 6.
+
+Input 2:
+
+4 2
+1 1 1 1
+Output 2:
+
+6
+Explanation:
+
+Each 1 will produce sum 2 with any 1.
+Constraints:
+
+1 ≤N≤ 10^5
+1 ≤K≤ 2*10^5
+1 ≤arr[i]≤ 10^5
+Example
+Input
+4 2
+1 1 1 1
+Output
+6
+
+
+/* package codechef; // don't place package name! */
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		InputStreamReader inputStreamReader  = new InputStreamReader(System.in);
+		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+		String firstLineinput[] = bufferedReader.readLine().trim().split(" ");
+		int sizeofArr =Integer.parseInt(firstLineinput[0]);
+		int target = Integer.parseInt(firstLineinput[1]);
+		int arr[] = new int[sizeofArr];
+		String secondLineInput[] = bufferedReader.readLine().trim().split(" ");
+		for(int i =0 ;i<sizeofArr;i++)
+		{
+			arr[i] = Integer.parseInt(secondLineInput[i]);
+		}
+		Arrays.sort(arr);
+		int i,j;long count = 0l;
+		i=0;j=arr.length-1;
+		while(i<j)
+		{
+			int k = arr[i]+arr[j];
+			if(k<target) i++;
+			else if(k>target) j--;
+			else
+			{
+				long count1=0l,count2=0l;
+				int val1=arr[i];
+				int val2=arr[j];
+				if(arr[i]==arr[j]) {
+					count1 = j-i+1;
+					//select 2 from n nc2
+					count+=count1*(count1-1)/2;
+					break;// we are in middle of array and no other element to traverse
+				}//if
+				else
+				{
+					while(val1==arr[i]) {count1++;i++;}
+					while(val2==arr[j]) {count2++;j--;}
+					count+=count1*count2;
+				}
+			}//else
+		}//while
+		System.out.println(count);
+	}
+
+}
+------------------------------------------------------------------------------------------
+
+Pair with a Difference
+markAsDonemarkForRevisionmarkForLater
+Given an array arr of N integers, and an integer K, Determine whether or not there exist two elements in arr whose difference is exactly K.
+
+Input Format
+
+The first line contains two spaced integers N and K denoting the size of the array and the target difference respectively.
+The second line contains N space-separated integers denoting the elements of the array.
+Output Format
+
+Print "Yes" if there exist two elements in arr whose difference is exactly K otherwise print "No".
+Input 1:
+
+6 78
+5 20 3 2 5 80
+Output 1:
+
+Yes
+Explanation:
+
+(2, 80) have difference of 78.
+Constraints:
+
+1 ≤ N ≤ 10^5
+1 ≤ K ≤ 10^5
+1 ≤ arr[i] ≤ 10^5
+Example
+Input
+6 78
+5 20 3 2 5 80
+Output
+Yes
+54
+​
+resetIcon
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		InputStreamReader inputStreamReader  = new InputStreamReader(System.in);
+		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+		String firstLineinput[] = bufferedReader.readLine().trim().split(" ");
+		int sizeofArr =Integer.parseInt(firstLineinput[0]);
+		int target = Integer.parseInt(firstLineinput[1]);
+		int arr[] = new int[sizeofArr];
+		String secondLineInput[] = bufferedReader.readLine().trim().split(" ");
+		for(int i =0 ;i<sizeofArr;i++)
+		{
+			arr[i] = Integer.parseInt(secondLineInput[i]);
+		}
+		Arrays.sort(arr);
+		int i,j;
+		i=0;
+		j = i+1;
+		boolean isTargetFound= false;
+		int diff;
+		while(j<arr.length)
+		{
+			if(target>=0)
+				diff =  arr[j] - arr[i];
+ 			else
+ 				diff = arr[i] - arr[j];
+ 			if(diff==target)
+			{
+				isTargetFound = true;
+				break;
+			}
+			else if(diff>target)
+			{
+				i++;
+				if(i==j)j++;
+			}
+			else
+			{
+				j++;
+			}
+		}
+		if(isTargetFound)
+		{
+			System.out.println("Yes");
+		}
+		else
+		{
+			System.out.println("No");
+		}
+		
+	}
+
+}
+----------------------------------------------------
+Unique pairs with given Difference
+markAsDonemarkForRevisionmarkForLater
+Given an array arr of N integers, and a non-negative integer K, count all distinct pairs with difference equal to K, i.e., arr[ i ] - arr[ j ] = K.
+
+Input Format
+
+The first line contains two spaced integers N and K denoting the size of the array and the target difference respectively.
+The second line contains N space-separated integers denoting the elements of the array.
+Output Format
+
+Print all distinct pairs with difference equal to K.
+Input 1:
+
+5 0
+1 5 4 1 2
+Output 1:
+
+1
+Explanation:
+
+There is only one pair (1, 1) whose difference equal to 0.
+Input 2:
+
+3 2
+1 5 3
+Output 2:
+
+2
+Explanation:
+
+There are two pairs (5, 3) and (1, 3) whose difference equal to 2.
+Constraints:
+
+1 ≤ N ≤ 10^5
+0 ≤ K ≤ 10^5
+1 ≤ arr[i] ≤ 10^5
+Example
+Input
+5 0
+1 5 4 1 2
+Output
+1
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		InputStreamReader inputStreamReader  = new InputStreamReader(System.in);
+		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+		String firstLineinput[] = bufferedReader.readLine().trim().split(" ");
+		int sizeofArr =Integer.parseInt(firstLineinput[0]);
+		int target = Integer.parseInt(firstLineinput[1]);
+		int arr[] = new int[sizeofArr];
+		String secondLineInput[] = bufferedReader.readLine().trim().split(" ");
+		for(int i =0 ;i<sizeofArr;i++)
+		{
+			arr[i] = Integer.parseInt(secondLineInput[i]);
+		}
+		Arrays.sort(arr);
+		int i,j;long count = 0l;
+		i=0;j=i+1;
+		int diff;
+		while(j<arr.length)
+		{
+		    
+			diff =  arr[j] - arr[i];
+			if(diff<target)
+			{
+				j++;
+			}
+			else if(diff> target)
+			{
+				i++;if(i==j)j++;
+			}
+			else
+			{
+				long count1,count2;
+				count1=count2=0l;
+				int p = arr[i];
+				int q = arr[j];
+				if(arr[i]==arr[j])
+				{
+					while(i<arr.length && arr[i]==p) {i++;j++;}
+				}
+				else
+				{
+					while (i<arr.length && arr[i]==p) {i++;}
+					while(j<arr.length && arr[j]==q) {j++;}
+				}
+				count++;
+			}
+		}//while
+		System.out.println(count);
+	}
+
+}
+// for all pair
+//https://www.geeksforgeeks.org/count-pairs-difference-equal-k/
+-----------------------------------------------------------------------
+
+Union of 2 Sorted Arrays
+Union of two arrays can be defined as the common and distinct elements in the two arrays.
+Given two sorted arrays of size N and M respectively, find their union.
+
+Input Format
+
+The first line contains two spaced integers N and M denoting the size of the first and second array respecively.
+The second line contains N space-separated integers denoting the elements of the first array.
+The third line contains M space-separated integers denoting the elements of the second array.
+Output Format
+
+Print the union of the two arrays in sorted(ascending) order.
+Input 1:
+
+5 3
+1 2 3 4 5
+1 2 3
+Output 1:
+
+1 2 3 4 5
+Explanation:
+
+Distinct elements including both the arrays are: 1 2 3 4 5.
+Input 2:
+
+5 5
+2 2 3 4 5
+1 1 2 3 4
+Output 1:
+
+1 2 3 4 5
+Explanation:
+
+Distinct elements including both the arrays are: 1 2 3 4 5.
+Constraints:
+
+1 ≤ N, M ≤ 10^5
+1 ≤ arr[i], brr[i] ≤ 10^6
+Example
+Input
+5 3
+1 2 3 4 5
+1 2 3
+Output
+1 2 3 4 5
+54
+
+}
+
+-----------------------------------------------------------------------------
+https://leetcode.com/problems/intersection-of-two-arrays/
+https://leetcode.com/problems/remove-element/description/
+https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
+https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/
+
+
+Find Subarray
+markAsDonemarkForRevisionmarkForLater
+Given an unsorted array arr of size n , find a continuous sub-array which adds to a number S.
+
+In case of multiple subarrays, return the subarray which comes first on moving from left to right.
+
+Input Format
+
+The first line of input contains an integer T, denoting the number of test cases. Then T test cases follow.
+The first line of each test contains two space-separated integers, n and S.
+The next line contains n space-separated integers, denoting elements of the array.
+Output Format
+
+For each test case, print the starting and ending index of the first such occurring subarray from the left where sum equals to S. The two indexes in the array should be according to 1-based indexing. If no such subarray is found, Print -1.
+Input 1:
+
+3
+5 12
+1 2 3 7 5
+10 15
+1 2 3 4 5 6 7 8 9 10
+5 4
+1 2 5 3 2
+Output 1:
+
+2 4
+1 5
+-1
+Explanations:
+
+For n=5, S=12 and arr={1,2,3,7,5}. The sum of elements from 2nd position to 4th position is 12.
+For n=5, S=4 and arr={1,2,5,3,2}. No such sub-arrays exist which sums to 4.
+Constraints:
+
+1
+≤
+T
+≤
+5
+1
+≤
+n
+≤
+10
+5
+1
+≤
+a
+r
+r
+[
+i
+]
+≤
+10
+9
+Example
+Input
+3
+5 12
+1 2 3 7 5
+10 15
+1 2 3 4 5 6 7 8 9 10
+5 4
+1 2 5 3 2
+Output
+2 4
+1 5
+-1
+54
+​
+--------------------------
+https://leetcode.com/problems/3sum/description/
+https://leetcode.com/problems/4sum/description/
+https://leetcode.com/problems/3sum-closest/description/
+https://leetcode.com/problems/container-with-most-water/description/
+https://leetcode.com/problems/boats-to-save-people/description/
+-------------------------------------------
+https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
+https://leetcode.com/problems/minimum-window-substring/description/
+https://leetcode.com/problems/max-consecutive-ones-iii/description/
+https://leetcode.com/problems/count-number-of-nice-subarrays/description/
+https://practice.geeksforgeeks.org/problems/equivalent-sub-arrays3731/1/?difficulty[]=1&difficulty[]=2&page=1&category[]=two-pointer-algorithm&query=difficulty[]1difficulty[]2page1category[]two-pointer-algorithm
+https://leetcode.com/problems/subarrays-with-k-different-integers/description/
+https://codeforces.com/contest/252/problem/C
+https://codeforces.com/contest/958/problem/F2
+https://www.geeksforgeeks.org/minimize-maxai-bj-ck-minai-bj-ck-three-different-sorted-arrays/
+https://leetcode.com/problems/ugly-number-ii/description/
