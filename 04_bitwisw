@@ -1,0 +1,162 @@
+https://leetcode.com/problems/power-of-two/description/
+https://leetcode.com/problems/number-of-1-bits/description/
+https://leetcode.com/problems/bitwise-and-of-numbers-range/description/
+
+Power set with Power 2
+markAsDonemarkForRevisionmarkForLater
+Given is an array arr[] of size N. Return the number of non-empty subsequences such that the product of all numbers in the subsequence is Power of 2. Since the answer may be too large, return it modulo 10^9 + 7.
+
+Input Format
+
+The first line contains a single integer N denoting the size of the array.
+The second line contains N space-separated integers denoting the elements of the array.
+Output Format
+
+Print the required number of subsequence modulo 10^9 + 7.
+Input 1:
+
+3
+1 6 2
+Output 1:
+
+3
+Explanation:
+
+The subsequence that can be chosen are {1}, {2} and {1,2}.
+Constraints:
+
+1 ≤ N ≤ 10^5
+1 ≤ arr[i] ≤ 10^9
+Example
+Input
+3
+1 6 2
+Output
+3
+54
+---------------------
+
+Bleak Numbers
+markAsDonemarkForRevisionmarkForLater
+Given an integer N, check whether it is Bleak or not.
+
+A number N is called Bleak if it cannot be represented as sum of a positive number x and set bit count in x, i.e., x + countSetBits(x) is not equal to n for any non-negative number x.
+
+Input Format
+
+The first line contains a single positive integer N.
+Output Format
+
+Print "1" if the given number is a Bleak otherwise "0".
+Input 1:
+
+4
+Output 1:
+
+1
+Explanation:
+
+There is no any possible x such that x + countSetbit(x) = 4.
+Input 2:
+
+3
+Output 2:
+
+0
+Explanation:
+
+3 is a Bleak number as 2 + countSetBit(2) = 3.
+Constraints:Given a sorted array arr[] of N positive integers having all the numbers occurring exactly twice, except for one number which will occur only once. Find the number occurring only once.
+
+Input Format
+
+The first line contains a single integer N denoting the size of the array.
+The second line contains N space-separated integers denoting the elements of the array.
+Output Format
+
+Print the number which occurs only once in the array.
+Input 1:
+
+5
+1 1 2 5 5
+Output 1:
+
+2
+Explanation:
+
+Since 2 occurs once, while other numbers occur twice, 2 is the answer.
+Input 2:
+
+7
+2 2 5 5 20 30 30
+Output 2:
+
+20
+Explanation:
+
+Since 20 occurs once, while other numbers occur twice, 20 is the answer.
+Constraints:
+
+1 ≤ N ≤ 10^6
+1 ≤ arr[i] ≤ 10^9
+Example
+Input
+7
+2 2 5 5 20 30 30
+Output
+20
+------------
+https://leetcode.com/problems/single-number-ii/
+https://leetcode.com/problems/total-hamming-distance/
+https://www.hackerrank.com/contests/codeagon/challenges/bob-and-subarray-or
+https://leetcode.com/problems/minimum-flips-to-make-a-or-b-equal-to-c/description/
+https://leetcode.com/problems/gray-code/description/
+https://leetcode.com/problems/minimum-one-bit-operations-to-make-integers-zero/description/
+-----------------------------
+https://leetcode.com/problems/xor-queries-of-a-subarray/description/
+https://codeforces.com/problemset/problem/424/C
+https://leetcode.com/problems/single-number-iii/description/
+https://www.codechef.com/problems/LIKECS03
+-----------------------------------
+https://www.codechef.com/JULY20B/problems/PTMSSNG
+-----------
+Missing and Repeating Integers
+
+Given an unsorted array arr of size N of positive integers. One number A from set {1, 2, …N} is missing and one number B occurs twice in array. Find these two numbers.
+
+Input Format
+The first line contains a single integer N denoting the size of the array.
+
+The second line contains N space-separated integers denoting the elements of the array.
+
+Output Format
+Two separated integers first being the Repeated number and other will be the missing integer.
+Sample Input 1
+3
+1 3 3
+Sample Output 1
+3 2
+Explanation:
+
+Repeating number is 3 and smallest positive missing number is 2.
+Constraints:
+
+2 ≤ N ≤ 10^5
+1 ≤ arr[i] ≤ N
+There will be exactly one integer which will appear 2 times in the array and one integer will be missing.
+Example
+Input
+3
+1 3 3
+Output
+3 2
+54
+​
+------------------------------------
+https://leetcode.com/problems/decode-xored-permutation/description/
+https://leetcode.com/problems/count-triplets-that-can-form-two-arrays-of-equal-xor/description/
+
+
+https://leetcode.com/problems/number-of-steps-to-reduce-a-number-in-binary-representation-to-one/description/
+------------
+
