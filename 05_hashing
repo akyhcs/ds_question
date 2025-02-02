@@ -1,5 +1,4 @@
 Key Pair
-markAsDonemarkForRevisionmarkForLater
 Given an array arr of N integers, and an integer K, Determine whether or not there exist two elements in arr whose sum is exactly K.
 
 Input Format
@@ -34,7 +33,7 @@ Yes
 
 --------------------
 Subarray Sum Zero
-markAsDonemarkForRevisionmarkForLater
+
 Given an array arr of positive and negative numbers. Find if there is a subarray (of size at-least one) with 0 sum.
 
 Input Format
@@ -80,7 +79,7 @@ No
 -----------------------
 
 Largest Subarray
-markAsDonemarkForRevisionmarkForLater
+
 Given an array arr of positive and negative numbers. The task is to compute the length of the largest subarray with sum 0. If no subarray of sum 0 is present then output 0.
 
 Input Format
@@ -123,7 +122,7 @@ Output
 0
 -------------------------
 Largest Subarray with sum K
-markAsDonemarkForRevisionmarkForLater
+
 Given an array arr of positive and negative integers and an integer K. Your task is to find the length of the longest Sub-Array with the sum of the elements equal to the given value K.
 
 Input Format
@@ -171,8 +170,9 @@ https://leetcode.com/problems/subarray-sums-divisible-by-k/description/
 https://leetcode.com/problems/4sum-ii/description/
 https://codeforces.com/contest/903/problem/C
 https://codeforces.com/problemset/problem/713/A
+
 Consecutive Elements
-markAsDonemarkForRevisionmarkForLater
+
 Given an array arr[] of size N, the task is to check whether the array consists of consecutive numbers or not.
 
 Input Format
